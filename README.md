@@ -19,3 +19,17 @@
       customize Pizza
       add a drink type
       add a drink size
+ 
+ #### Methods ####
+  * User
+    be able to create users
+
+  * Pizza
+    be able to create pizza with attributes
+    be able to see the description
+    be able to update pizza
+
+
+  * Cart
+    be able to update pizza
+    be able to see total
