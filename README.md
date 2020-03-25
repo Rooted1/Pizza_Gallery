@@ -5,9 +5,6 @@
     A user should be able to
       enter a name
       pick a type of Pizza
-      <!-- select pizza size -->
-      <!-- select cut style -->
-      <!-- select crust type -->
       see the price of each pizza type
       view items in cart
       see price of each selected pizza in cart
