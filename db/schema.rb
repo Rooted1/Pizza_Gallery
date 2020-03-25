@@ -10,12 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_24_192734) do
+ActiveRecord::Schema.define(version: 2020_03_25_170826) do
 
   create_table "carts", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "pizza_id"
     t.float "total"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "pizza_id"
+    t.integer "cart_id"
   end
 
   create_table "pizzas", force: :cascade do |t|
