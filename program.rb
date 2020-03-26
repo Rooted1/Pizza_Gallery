@@ -1,6 +1,6 @@
 require_relative './config/environment.rb'
 require_relative './lib/p_buy_view.rb'
-require_relative './lib/p_anything_else.rb'
+require_relative './lib/p_readyforcheckout.rb'
 require_relative './lib/p_finduser.rb'
 
 $prompt = TTY::Prompt.new()
@@ -10,9 +10,10 @@ def start_app
 
     puts "What is your name?"
     $name_input = gets.strip
+    loop do
     find_user
     buy_pizza_or_view_cart
-    anything_else?
+    end
 end
 
 start_app

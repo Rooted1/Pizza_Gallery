@@ -1,6 +1,7 @@
 require 'bundler/setup'
 Bundler.require
 
+
 if ENV['ACTIVE_RECORD_ENV'] == 'test'
   # Mock Database
   # Fake Database to use while our tests run
