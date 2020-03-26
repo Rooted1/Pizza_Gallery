@@ -12,6 +12,7 @@ def start_app
     $name_input = gets.strip
     loop do
     find_user
+    # puts "Welcome #{}"
     buy_pizza_or_view_cart
     end
 end

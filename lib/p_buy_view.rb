@@ -68,15 +68,18 @@ def buy_pizza_or_view_cart
 
     cart_choice = $prompt.select("What would you like to do?", ["Remove items","View pizza description","Ready_for_checkout"])
     if cart_choice == "Remove items"
+        if cart_items.length != 0
         remove_choice = $prompt.select("What would you like to remove", cart_items)
-        puts "Item removed"
-        removed_pizza = all_cart_orders.select{|order| order.pizza.pizza_name == remove_choice}.shift
-
-        remaining_order = all_cart_orders.reject{|order| order.pizza.pizza_name if order == removed_pizza}
-        removed_pizza_price = removed_pizza.pizza.price
-        cart_total -= removed_pizza_price
-        cart_items = remaining_order.to_a.map{|order| order.pizza.pizza_name}
-        removed_pizza.destroy
+            puts "Item removed"
+            removed_pizza = all_cart_orders.select{|order| order.pizza.pizza_name == remove_choice}.shift
+            remaining_order = all_cart_orders.reject{|order| order.pizza.pizza_name if order == removed_pizza}
+            removed_pizza_price = removed_pizza.pizza.price
+            cart_total -= removed_pizza_price
+            cart_items = remaining_order.to_a.map{|order| order.pizza.pizza_name}
+            removed_pizza.destroy
+        else
+            puts "Nothing to remove"
+        end
     elsif cart_choice == "View pizza description"
         pizza_descript = $prompt.select("Select a pizza", ["Pepperoni","Hawaiian","Cheese","Supreme Pizza","Greek Pizza","Vegeterian Pizza"])
         case pizza_descript 
