@@ -10,10 +10,10 @@ def start_app
 
     puts "What is your name?"
     $name_input = gets.strip
-    loop do
+    # loop do
     find_user
     buy_pizza_or_view_cart
-    end
+    # end
 end
 
 start_app

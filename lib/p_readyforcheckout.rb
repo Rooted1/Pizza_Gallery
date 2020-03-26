@@ -37,13 +37,13 @@ end
 
 def ready_for_checkout?
     loop do
-        user_choice = $prompt.select("Ready for checkout?", ["Yes","No"])
-        case user_choice
-            when "No"
-                buy_pizza_or_view_cart
-            when "Yes"
-                checkout
-                break
+      user_choice = $prompt.select("Ready for checkout?", ["Yes","No"])
+      case user_choice
+          when "No"
+              buy_pizza_or_view_cart
+          when "Yes"
+              checkout
+              break
             end
     end
 end
