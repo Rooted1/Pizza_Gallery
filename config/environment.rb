@@ -15,8 +15,6 @@ else
     database: "db/development.sqlite"
   )
 end
-
 ActiveRecord::Base.logger = nil
-
 require_all 'app'
 require_all 'lib'
