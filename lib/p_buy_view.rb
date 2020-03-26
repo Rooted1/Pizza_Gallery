@@ -54,8 +54,8 @@ def buy_pizza_or_view_cart
         cart_items << (order.pizza.pizza_name)
         cart_total += order.pizza.price
     end
-    
-    if users_own_cart == nil 
+
+    if users_own_cart == nil
         puts "Your cart is empty"
     else
         if cart_items.length == 0
@@ -71,7 +71,6 @@ def buy_pizza_or_view_cart
         remove_choice = $prompt.select("What would you like to remove", cart_items)
         puts "Item removed"
         removed_pizza = all_cart_orders.select{|order| order.pizza.pizza_name == remove_choice}.shift
-
         remaining_order = all_cart_orders.reject{|order| order.pizza.pizza_name if order == removed_pizza}
         removed_pizza_price = removed_pizza.pizza.price
         cart_total -= removed_pizza_price
@@ -79,26 +78,32 @@ def buy_pizza_or_view_cart
         removed_pizza.destroy
     elsif cart_choice == "View pizza description"
         pizza_descript = $prompt.select("Select a pizza", ["Pepperoni","Hawaiian","Cheese","Supreme Pizza","Greek Pizza","Vegeterian Pizza"])
-        case pizza_descript 
+        case pizza_descript
             when "Pepperoni"
                 puts get_pizza_description("Pepperoni")
+                buy_pizza_or_view_cart
             when "Hawaiian"
                 puts get_pizza_description("Hawaiian")
+                buy_pizza_or_view_cart
             when "Cheese"
                 puts get_pizza_description("Cheese")
+                buy_pizza_or_view_cart
             when "Supreme Pizza"
                 puts get_pizza_description("Supreme Pizza")
+                buy_pizza_or_view_cart
             when "Greek Pizza"
                 puts get_pizza_description("Greek Pizza")
+                buy_pizza_or_view_cart
             when "Vegeterian Pizza"
                 puts get_pizza_description("Vegeterian Pizza")
+                buy_pizza_or_view_cart
         end
      elsif cart_choice == "Ready_for_checkout"
         ready_for_checkout?
     end
 
     if user_choice == "View my cart"
-        if users_own_cart == nil 
+        if users_own_cart == nil
             puts "Your cart is empty"
         else
             if cart_items.length == 0
